@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { constructEvent } from "../../../app/lib/stripe";
+import { constructEvent } from "../../lib/stripe";
 
 export async function POST(request: NextRequest): Promise<NextResponse> {
   try {
