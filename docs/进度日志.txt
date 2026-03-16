@@ -1,0 +1,104 @@
+# ResumeAI Pro 进度日志
+
+---
+
+## [2026-03-15 14:30] 多语言支持完成 ✅
+
+**任务**: 实现15语言自动检测
+**状态**: ✅ 完成
+
+**已完成**:
+1. ✅ 扩展 i18n.ts 支持15种语言: en/zh/ja/ko/es/fr/de/ar/pt/ru/it/nl/pl/tr/vi
+2. ✅ 添加国家代码到语言的映射 (getLocaleFromCountry)
+3. ✅ 创建 /api/geo 路由用于IP地理位置检测
+4. ✅ 更新 I18nProvider 自动检测用户地区并设置语言
+5. ✅ 语言偏好持久化到 localStorage
+6. ✅ 更新 LanguageSwitcher 支持全部15种语言（下拉菜单）
+7. ✅ 定价根据地区自动本地化 (USD/CNY/JPY/KRW/EUR等)
+
+**技术细节**:
+- 优先检测 Cloudflare/Vercel 的请求头 (cf-ipcountry, x-vercel-ip-country)
+- 降级使用 accept-language 浏览器语言
+- 最终降级到英语
+- 用户可以手动覆盖并保存偏好
+
+---
+
+## [2026-03-15 13:15] 构建成功 ✅
+
+**任务**: MVP基础架构搭建
+**状态**: ✅ 完成
+
+**已完成**:
+1. ✅ 安装依赖: pdf-parse@1.1.1, mammoth, @anthropic-ai/sdk, stripe, @stripe/stripe-js, clsx, tailwind-merge
+2. ✅ 创建环境变量文件 (.env.example, .env.local)
+3. ✅ 创建类型定义 (types/index.ts)
+4. ✅ 创建工具函数 (lib/utils.ts)
+5. ✅ 创建API路由:
+   - app/api/analyze/route.ts (简历分析)
+   - app/api/payment/route.ts (Stripe支付)
+   - app/api/webhook/route.ts (Stripe webhook)
+6. ✅ 创建组件:
+   - components/ResumeUploader.tsx (文件上传)
+   - components/ScoreCard.tsx (评分卡片)
+   - components/AnalysisResult.tsx (分析结果)
+   - components/PaymentButton.tsx (支付按钮)
+7. ✅ 更新首页 (app/page.tsx)
+8. ✅ 更新布局 (app/layout.tsx)
+9. ✅ 创建类型声明 (pdf-parse.d.ts)
+10. ✅ 构建成功
+
+**待完成**:
+- [ ] 配置 .env.local 中的实际API密钥
+- [ ] 在Stripe创建产品和价格
+- [ ] 测试文件上传和解析
+- [ ] 测试Claude API分析
+- [ ] 运行完整测试
+
+**遇到的问题及解决**:
+1. pdf-parse v2.4.5 API不同 → 降级到 v1.1.1
+2. pdf-parse 类型声明缺失 → 创建 pdf-parse.d.ts
+3. pdf-parse 测试文件缺失 → 创建 test/data/05-versions-space.pdf
+4. Stripe API版本问题 → 更新到 2026-02-25.clover
+5. Stripe 初始化问题 → 改为函数内初始化
+6. JSX 命名空间问题 → 使用 React.JSX.Element
+
+---
+
+## [2026-03-15 13:05] 基础架构搭建完成
+
+**任务**: MVP基础架构搭建
+**状态**: 进行中
+
+**已完成**:
+1. ✅ 安装依赖: pdf-parse, mammoth, @anthropic-ai/sdk, stripe, @stripe/stripe-js, clsx, tailwind-merge
+2. ✅ 创建环境变量文件 (.env.example, .env.local)
+3. ✅ 创建类型定义 (types/index.ts)
+4. ✅ 创建工具函数 (lib/utils.ts)
+5. ✅ 创建API路由:
+   - app/api/analyze/route.ts (简历分析)
+   - app/api/payment/route.ts (Stripe支付)
+   - app/api/webhook/route.ts (Stripe webhook)
+6. ✅ 创建组件:
+   - components/ResumeUploader.tsx (文件上传)
+   - components/ScoreCard.tsx (评分卡片)
+   - components/AnalysisResult.tsx (分析结果)
+   - components/PaymentButton.tsx (支付按钮)
+7. ✅ 更新首页 (app/page.tsx)
+8. ✅ 更新布局 (app/layout.tsx)
+
+---
+
+## [2026-03-15 12:50] 项目启动
+
+**任务**: 项目初始化和基础搭建
+**状态**: 已完成
+
+**已完成**:
+1. ✅ 读取全局规则配置
+2. ✅ 创建 docs/项目快照.md
+3. ✅ 创建 docs/进度日志.txt（本文件）
+
+---
+
+*最新记录在最上方*
