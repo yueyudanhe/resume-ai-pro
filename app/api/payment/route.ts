@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { createCheckoutSession } from "../../../app/lib/stripe";
+import { createCheckoutSession } from "../../../lib/stripe";
 
 export async function POST(request: NextRequest): Promise<NextResponse> {
   try {
