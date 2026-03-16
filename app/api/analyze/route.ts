@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import pdfParse from "pdf-parse";
 import mammoth from "mammoth";
-import { analyzeResume } from "../../../app/lib/anthropic";
+import { analyzeResume } from "../../lib/anthropic";
 
 export async function POST(request: NextRequest): Promise<NextResponse> {
   try {
